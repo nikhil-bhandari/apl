@@ -22,6 +22,7 @@
     "angular-cookies": "^1.6.4",
     "angular-sanitize": "^1.6.4",
     "lodash": "^4.17.4",
-    "angular-ui-router": "ui-router#^1.0.4"
+    "angular-ui-router": "1.0.4",
+    "bootstrap": "3.3.4"
   }
 }
