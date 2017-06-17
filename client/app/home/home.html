@@ -18,26 +18,7 @@
     <ul class="match-list" infinite-scroll="ctrl.next()">
         <li ng-repeat="match in ctrl.matches track by $index"
             ui-sref="match({id: match.id})">
-            <div class="title">
-                <span>
-                    <img ng-src="{{match.team.a | aplFlag}}" alt="">
-                </span>
-                <span>
-                    vs
-                </span>
-                <span>
-                    <img ng-src="{{match.team.b | aplFlag}}" alt="">
-                </span>
-            </div>
-
-            <div class="played-on">
-                {{match.date | date}}, {{match.city}}
-            </div>
-
-            <div class="match-nav">
-                <a ui-sref="match({id: match.id})" class="btn btn-default btn-xs">STATS</a>
-                <a ui-sref="match({id: match.id, live: true})" class="btn btn-danger btn-xs">LIVE</a>
-            </div>
+            <div apl-match-detail match="match"></div>
         </li>
     </ul>
 
