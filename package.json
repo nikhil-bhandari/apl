@@ -11,6 +11,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "connect-livereload": "^0.6.0",
+    "csv-parse": "^1.2.0",
     "dev": "^0.1.3",
     "express": "^4.15.3",
     "grunt": "^1.0.1",
@@ -24,6 +25,7 @@
     "jit-grunt": "^0.10.0",
     "mongoose": "^4.10.6",
     "morgan": "^1.8.2",
+    "redis": "^2.7.1",
     "requirejs": "^2.3.3",
     "time-grunt": "^1.4.0"
   }
