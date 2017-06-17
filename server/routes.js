@@ -27,7 +27,7 @@ module.exports = function (app) {
                     );
             });
     });
-    app.get("/api/deliveries/:matchId", (req, res) => {
+    app.get("/api/matches/:matchId", (req, res) => {
         dataStore
             .get("DELIVERIES", (err, data) => {
                 res.json(data[req.params.matchId]);
