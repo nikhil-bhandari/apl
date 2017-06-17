@@ -1,3 +1,34 @@
 <div class="container">
-    This is home
+    <div class="logo">
+        <img src="assets/images/logo-accenture.png" alt="">
+        <span>premier league</span>
+    </div>
+
+    <form ng-submit novalidate class="search-form">
+        <div class="col-xs-12">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+            </span>
+            </div>
+        </div>
+    </form>
+    <ul class="match-list">
+        <li ng-repeat="match in ctrl.matches track by $index">
+            <ddiv class="title">
+                <span>
+                {{match.team.a}}
+                </span>
+                <span>
+                    vs
+                </span>
+                <span>
+                    {{match.team.b}}
+                </span>
+            </ddiv>
+        </li>
+    </ul>
+
 </div>

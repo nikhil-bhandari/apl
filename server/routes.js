@@ -5,7 +5,7 @@ module.exports = function (app) {
     app.use(express.static(__dirname + "/../client/"));
 
     app.get("/api/matches", (req, res) => {
-        const max = 10;
+        const max = req.query.max || 10;
         const page = req.query.page || 1;
         const query = (req.query.q || "").toLowerCase();
 
@@ -23,7 +23,7 @@ module.exports = function (app) {
                 res
                     .json(
                         filteredData
-                            .slice((page - 1) * 10, page * 10)
+                            .slice((page - 1) * max, page * max)
                     );
             });
     });
