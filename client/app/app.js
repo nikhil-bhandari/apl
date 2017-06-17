@@ -1,7 +1,8 @@
 angular
     .module("apl", [
         "ui.router",
-        "ngResource"
+        "ngResource",
+        "infinite-scroll",
     ])
     .config(function ($urlRouterProvider) {
         $urlRouterProvider.otherwise("/");

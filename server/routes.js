@@ -14,8 +14,7 @@ module.exports = function (app) {
                 let filteredData;
                 if (query) {
                     filteredData = data.filter((item) => {
-                        return item.team.a.toLowerCase().indexOf(query) > -1
-                            || item.team.b.toLowerCase().indexOf(query) > -1;
+                        return JSON.stringify(item).toLowerCase().indexOf(query) > -1
                     })
                 } else {
                     filteredData = data;

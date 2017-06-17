@@ -59,30 +59,36 @@ function parseMatches(cb) {
             return cb(err);
         }
 
-        const matches = data.map((item) => {
-            return {
-                id: item[0],
-                season: item[1],
-                city: item[2],
-                date: new Date(item[3]),
-                team: {
-                    a: item[4],
-                    b: item[5],
-                },
-                tossWinner: item[6],
-                tossDecision: item[7],
-                result: item[8],
-                dlApplied: item[9],
-                winner: item[10],
-                winBy: {
-                    runs: item[11],
-                    wickets: item[12]
-                },
-                playerOfMatch: item[13],
-                venue: item[14],
-                umpires: [item[15], item[16], item[17]].filter((i) => i),
-            }
-        });
+        const matches = _
+            .chain(data)
+            .map((item) => {
+                return {
+                    id: item[0],
+                    season: item[1],
+                    city: item[2],
+                    date: new Date(item[3]),
+                    team: {
+                        a: item[4],
+                        b: item[5],
+                    },
+                    tossWinner: item[6],
+                    tossDecision: item[7],
+                    result: item[8],
+                    dlApplied: item[9],
+                    winner: item[10],
+                    winBy: {
+                        runs: item[11],
+                        wickets: item[12]
+                    },
+                    playerOfMatch: item[13],
+                    venue: item[14],
+                    umpires: [item[15], item[16], item[17]].filter((i) => i),
+                }
+            })
+            .sort(function (a, b) {
+                return (+b.date) - (+a.date);
+            })
+            .value();
 
         return cb(null, matches);
     })

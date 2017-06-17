@@ -4,30 +4,40 @@
         <span>premier league</span>
     </div>
 
-    <form ng-submit novalidate class="search-form">
+    <form name="searchForm" ng-submit="searchForm.$valid && ctrl.search()" novalidate class="search-form">
         <div class="col-xs-12">
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                <input type="text" class="form-control" placeholder="Search for...">
+                <input type="text" ng-model="ctrl.q" class="form-control" placeholder="Search for...">
                 <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Go!</button>
+                <button class="btn btn-default" type="button">Search!</button>
             </span>
             </div>
         </div>
     </form>
-    <ul class="match-list">
-        <li ng-repeat="match in ctrl.matches track by $index">
-            <ddiv class="title">
+    <ul class="match-list" infinite-scroll="ctrl.next()">
+        <li ng-repeat="match in ctrl.matches track by $index"
+            ui-sref="match({id: match.id})">
+            <div class="title">
                 <span>
-                {{match.team.a}}
+                    <img ng-src="{{match.team.a | aplFlag}}" alt="">
                 </span>
                 <span>
                     vs
                 </span>
                 <span>
-                    {{match.team.b}}
+                    <img ng-src="{{match.team.b | aplFlag}}" alt="">
                 </span>
-            </ddiv>
+            </div>
+
+            <div class="played-on">
+                {{match.date | date}}, {{match.city}}
+            </div>
+
+            <div class="match-nav">
+                <a ui-sref="match({id: match.id})" class="btn btn-default btn-xs">STATS</a>
+                <a ui-sref="match({id: match.id, live: true})" class="btn btn-danger btn-xs">LIVE</a>
+            </div>
         </li>
     </ul>
 
