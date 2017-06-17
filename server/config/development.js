@@ -2,7 +2,7 @@
 
 module.exports = {
     port: 3000,
-    seed: true,
+    seed: false,
     redis: {
         url: "redis://localhost:6379"
     }

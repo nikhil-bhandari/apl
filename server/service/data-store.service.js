@@ -4,8 +4,7 @@ const redis = require("redis"),
 
 module.exports.set = function (key, value) {
     client.set(key, JSON.stringify(value), function (err, reply) {
-        console.log(">>>",key,value);
-        console.log(">>>s",err, reply);
+
     })
 };
 
